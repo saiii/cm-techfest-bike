@@ -29,9 +29,10 @@ int myinput_read()
   if ((currentTime - previousTime)/1000 >= 1)
   {
     digitalWrite(LED_PIN, !digitalRead(LED_PIN));
+    int secs = (currentTime - previousTime)/1000;
     prevRpm = speedRpm;
-    speedRpm = (speedCnt * 60);
-    Serial.printf("Speed: %d times per %d seconds, %d rpm\n", speedCnt, (currentTime - previousTime)/1000, speedRpm);   
+    speedRpm = (speedCnt * (60/secs));
+    Serial.printf("Speed: %d times per %d seconds, %d rpm\n", speedCnt, secs, speedRpm);   
     speedCnt = 0;
     previousTime = currentTime;
   }

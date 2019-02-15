@@ -28,7 +28,6 @@ char myName[40];
 
 void init_hardware()
 {
-  //myoutput_init();
   pinMode(SPEEDPIN, INPUT_PULLUP);  
   
   pinMode(relayPin, OUTPUT);
